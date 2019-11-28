@@ -31,7 +31,8 @@
   "transformModules": {
     "cube-ui": {
       "transform": "cube-ui/src/modules/${member}",
-      "kebabCase": true
+      "kebabCase": true,
+      "test":true
     }
   }
 }
