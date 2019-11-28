@@ -23,7 +23,8 @@ module.exports = {
         // 用户信息池
         const userpoor = [
           { username: 'lqd', password: 'lqd123456' },
-          { username: 'cws', password: 'cws123456' }
+          { username: 'cws', password: 'cws123456' },
+          { username: 'admin', password: 'admin' }
         ]
         app.get('/api/register', (req, res) => {
           const { username, password } = req.query
@@ -43,19 +44,20 @@ module.exports = {
         })
 
         // 登录接口
-        const tokenkey = 'lqd'
+        const tokenkey = 'shop'
         app.get('/api/login', (req, res) => {
           const { username, password } = req.query
-          if (username === 'lqd' && password === 'lqd123456' || username === 'cws' && password === 'cws123456') {
+          if (username === 'admin' && password === 'admin' || username === 'lqd' && password === 'lqd123456') {
             res.json({
               code: 0,
-              messge: '登录成功',
-              token: tokenkey + '-' + username + '-' + (new Date().getTime + 60 * 60 * 1000)
+              message: '登录成功',
+              token: tokenkey + '-' + username + '-' + (new Date().getTime() + 60 * 60 * 1000)
             })
           } else {
             res.json({
+              code: -1,
               success: 1,
-              messge: '账号或者密码错误'
+              message: '账号或者密码错误'
             })
           }
         })
@@ -64,16 +66,16 @@ module.exports = {
         app.get('/api/banner', (req, res) => {
           res.json({
             data: [{
-              url: 'https://m.xdclass.net',
-              image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png'
+              url: 'https://www.hao123.com',
+              image: 'http://202.104.104.86:28099/image/product/ftp/img69/ZBB80516001_20180601084235413.jpg'
             },
             {
-              url: 'https://m.xdclass.net',
-              image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png'
+              url: 'https://www.baidu.com',
+              image: 'http://202.104.104.86:28099/image/product/ftp/img69/ZBB80516001_20180601084235505.jpg'
             },
             {
-              url: 'https://m.xdclass.net',
-              image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png'
+              url: 'https://lol.qq.com',
+              image: 'http://202.104.104.86:28099/image/product/ftp/img69/ZBB80516001_20180601084235505.jpg'
             }]
           })
         })
@@ -84,106 +86,106 @@ module.exports = {
             data: [
               [
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '手机'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '电脑'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '电视'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '显示器'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '鞋子'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '衣服'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '裤子'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '建材'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '儿童'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类一'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '书籍'
                 }
               ],
               [
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '手表'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '珠宝'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '零食'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '用品'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '护肤'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '相机'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '汽车'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '包包'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '鼠标'
                 },
                 {
-                  url: 'https://m.xdclass.net',
-                  image: 'https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/xdclass_pro/bannner/1901/bat.png',
-                  label: '分类二'
+                  url: 'http://202.104.104.86:28099/image/product/ftp/img71/XUY80919803_20180919014758635.jpg',
+                  image: 'http://202.104.104.86:28099/image/product/ftp/tupian3/XZQ50518381C_0301336049111789928.jpg',
+                  label: '键盘'
                 }
               ]
             ]
