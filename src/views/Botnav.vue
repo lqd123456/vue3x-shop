@@ -65,7 +65,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
     .cube-tab-bar.botnav
         position  fixed
         bottom  0
