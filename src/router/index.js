@@ -56,11 +56,17 @@ const routes = [
       {
         path: 'search',
         name: 'search',
+        meta: {
+          requireAuth: true // 当有这个属性的时候，我们就认为这个路由有权限限制
+        },
         component: () => import('../views/Search.vue')
       },
       {
         path: 'cart',
         name: 'cart',
+        meta: {
+          requireAuth: true // 当有这个属性的时候，我们就认为这个路由有权限限制
+        },
         component: () => import('../views/Cart.vue')
       },
       {

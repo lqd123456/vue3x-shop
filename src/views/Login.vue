@@ -82,6 +82,12 @@ export default {
           window.localStorage.setItem('token', result.token)
           this.$router.replace({ path: '/botnav/index' })
           console.log(result.message)
+          // 判断路径是否带有路由参数
+          if (this.$router.query.redirect) {
+            this.$router.replace({ path: this.$router.query.redirect })
+          } else {
+            this.$router.replace({ path: '/botnav/index' })
+          }
         } else {
           alert(result.message)
         }

@@ -10,9 +10,11 @@
       @click="clickHandler"
       @change="changeHandler"
     />
+    <span class="countsum">{{ countsum }}</span>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -35,6 +37,30 @@ export default {
         icon: 'cubeic-person'
       }
       ]
+    }
+  },
+  computed: {
+    ...mapGetters({
+      countsum: 'countsum'
+    })
+  },
+  created() {
+    switch (this.$route.path) {
+      case '/botnav/index':
+        this.selectedLabelDefault = '首页'
+        break
+      case '/botnav/list':
+        this.selectedLabelDefault = '分类'
+        break
+      case '/botnav/search':
+        this.selectedLabelDefault = '搜索'
+        break
+      case '/botnav/cart':
+        this.selectedLabelDefault = '购物车'
+        break
+      case '/botnav/mine':
+        this.selectedLabelDefault = '我的'
+        break
     }
   },
   methods: {
@@ -63,6 +89,7 @@ export default {
       }
     }
   }
+
 }
 </script>
 <style lang="stylus">
@@ -90,4 +117,16 @@ export default {
         opacity 0
         -webkit-transform  translate(-100%,0)
         transform  translate(-100%,0)
+    .countsum
+      position  fixed
+      bottom 33px
+      right 23%
+      z-index  1001
+      width 18px
+      height 18px
+      line-height 18px
+      border-radius 50%
+      font-size 14px
+      background red
+      color #fff
 </style>
