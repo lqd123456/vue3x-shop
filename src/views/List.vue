@@ -1,104 +1,110 @@
 <template>
-  <div class="panelsbox">
-    <div class="scroll-list-wrap">
-      <cube-scroll class="leftpanels">
-        <ul>
-          <li v-for="(list,index) in tabslabel" :key="index" :class="list.active ? 'active' : ''" @click="selectlist(index)">
-            {{ list.label }}
-          </li>
-        </ul>
-      </cube-scroll>
-      <cube-scroll class="rightpanels">
-        <ul>
-          <li v-for="(tag,index) in tags" :key="index" :class="list.active ? 'active' : ''" @click="selectlist(index)">
-            <img src="tag.image" alt="">
-            <p>{{ tag.lab }}</p>
-          </li>
-        </ul>
-      </cube-scroll>
+    <div class="panelsbox">
+        <cube-scroll class="leftpanels">
+            <ul>
+                <li v-for="(list,index) in tabslabel" @click='selectlist(index)' :class="list.active?'active':''" :key='index'>
+                    {{list.label}}
+                </li>
+            </ul>
+        </cube-scroll>
+         <cube-scroll class="rightpanels">
+             <ul>
+                 <li v-for="(tag,index) in tags" :key="index">
+                     <img :src="tag.image" alt="">
+                     <p>{{tag.label}}</p>
+                 </li>
+             </ul>
+         </cube-scroll>
     </div>
-  </div>
 </template>
 
 <script>
-
 export default {
-  data() {
-    return {
-      tags: [],
-      tabslabel: [
-        {
-          label: '热门推荐',
-          active: true
-        },
-        {
-          label: '手机数码',
-          active: true
-        },
-        {
-          label: '家用电器',
-          active: true
-        },
-        {
-          label: '电脑产品',
-          active: true
-        },
-        {
-          label: '美妆',
-          active: true
-        },
-        {
-          label: '护肤',
-          active: true
-        },
-        {
-          label: '口红',
-          active: true
-        },
-        {
-          label: '珠宝',
-          active: true
-        },
-        {
-          label: '男装',
-          active: true
-        },
-        {
-          label: '女装',
-          active: true
+    data(){
+        return{
+           tags:[],
+           tabslabel:[
+               {
+                   label:'热门推荐',
+                   active:true
+               },
+               {
+                   label:'手机数码',
+                   active:false
+               },
+               {
+                   label:'家用电器',
+                   active:false
+               },
+               {
+                   label:'家用空调',
+                   active:false
+               },
+               {
+                   label:'电脑产品',
+                   active:false
+               },
+               {
+                   label:'计生情趣',
+                   active:false
+               },
+               {
+                   label:'美妆护肤',
+                   active:false
+               },
+               {
+                   label:'口红',
+                   active:false
+               },
+               {
+                   label:'手袋',
+                   active:false
+               },
+               {
+                   label:'金银财宝',
+                   active:false
+               },
+               {
+                   label:'手机数码',
+                   active:false
+               },
+               {
+                   label:'手机数码',
+                   active:false
+               },
+           ] 
         }
-      ]
-    }
-  },
-  created() {
-    this.getclassify(0)
-  },
-  methods: {
-    // 获取分类详情
-    async getclassify(index) {
-      const result = await this.$http.get('/api/classify', { params: { type: index }})
-      this.tags = result.data
     },
-    // 点击左侧分类事件
-    selectlist(index) {
-      this.tabslabel.forEach((val, loop) => {
-        if (index === loop) {
-          val.active = true
-        } else {
-          val.active = false
+    methods:{
+        //点击左侧分类
+        selectlist(index){
+            this.tabslabel.forEach((val,ind)=>{
+                if(index==ind){
+                    val.active=true
+                }else{
+                     val.active=false
+                }
+            })
+            this.getclassify(index)
+        },
+        //获取分类
+       async getclassify(index){
+           const result=await this.$http.get('/api/classify',{params:{type:index}})
+           this.tags=result.data
         }
-      })
-      this.getclassify(index)
     },
-    mounted() {
-      // 设置滚动盒子的高度
-      const leftpanels = document.querySelector('.leftpanels')
-      const rightpanels = document.querySelector('.rightpanels')
-      const bodyheight = document.documentElement.clientHeight
-      leftpanels.style.height = bodyheight - 57 + 'px'
-      rightpanels.style.height = bodyheight - 57 + 'px'
+    created(){
+        //获取默认的分类数据
+        this.getclassify(0)
+    },
+    mounted(){
+        //设置滚动盒子的高度
+        const leftpanels=document.querySelector('.leftpanels')
+        const rightpanels=document.querySelector('.rightpanels')
+        const bodyheight=document.documentElement.clientHeight
+        leftpanels.style.height=bodyheight-57+'px'
+        rightpanels.style.height=bodyheight-57+'px'
     }
-  }
 }
 </script>
 
@@ -127,9 +133,7 @@ export default {
                     justify-content center
                     align-items center
                     font-size 15px
-                    img
+                    img 
                         width 80px
                         height  80px
-                    .cubeic-add
-                        font-size  18px
 </style>

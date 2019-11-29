@@ -194,6 +194,7 @@ module.exports = {
 
         // 获取分类页的分类接口
         app.get('/api/classify', (req, res) => {
+          console.log(req.query.type)
           switch (req.query.type) {
             case '0':
               res.json({
