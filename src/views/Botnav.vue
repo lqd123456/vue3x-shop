@@ -66,7 +66,6 @@ export default {
   methods: {
     clickHandler(label) {
       // if you clicked home tab, then print 'Home'
-      console.log(label)
     },
     // 点击其他的时候触发
     changeHandler(label) {

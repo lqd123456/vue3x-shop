@@ -5,15 +5,16 @@
       <div class="goodsright">
         <i class="cubeic-remove" @click="removeCart(index)" />
         <span>{{ item.cartCount }}</span>
-        <i class="cubeic-add" @click="aaCart(index)" />
+        <i class="cubeic-add" @click="addCart(index)" />
       </div>
     </div>
     <cube-button style="margin:10px 0">下单</cube-button>
-    <cube-button>清空购物车</cube-button>
+    <cube-button @click="clearcart()">清空购物车</cube-button>
   </div>
 </template>
 
 <script>
+// vuex 里面封装好的，可以获取state里面的数据
 import { mapState } from 'vuex'
 export default {
   data() {
@@ -31,6 +32,7 @@ export default {
     }
   },
   computed: {
+    // mapState返回的是一个对象，通过...对其进行解构
     ...mapState({
       // cartarr: 'cartarry'
       cartarr: state => state.cartarry
@@ -59,6 +61,7 @@ export default {
         text-align  left
         .goodsright
             float right
+            span 20px
         i
             font-size 18px
 </style>

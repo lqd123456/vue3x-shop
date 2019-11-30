@@ -72,7 +72,10 @@ const routes = [
       {
         path: 'mine',
         name: 'mine',
-        component: () => import('../views/Mine.vue')
+        component: () => import('../views/Mine.vue'),
+        meta: {
+          requireAuth: true // 当有这个属性的时候，我们就认为这个路由有权限限制
+        },
       }
     ]
   }

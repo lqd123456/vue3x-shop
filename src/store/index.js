@@ -13,13 +13,13 @@ export default new Vuex.Store({
       state.token = token
     },
     // 添加商品到购物车
-    tocart(state, tag) {
-      const goods = state.cartarry.find(v => v.title == tag.label)
-      if (goods) {
-        goods.cartCount += 1
-      } else {
-        goods.cartCount = 1
-        state.cartarry.push(goods)
+    //添加商品到购物车
+    tocart(state,tag){
+      let goods=state.cartarry.find(v=>v.title==tag.label)
+      if(goods){
+        goods.cartCount+=1
+      }else{
+        state.cartarry.push({title:tag.label,cartCount:1})
       }
     },
     // 购物车商品数量加一
