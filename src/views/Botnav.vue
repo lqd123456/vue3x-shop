@@ -56,7 +56,7 @@ export default {
         this.selectedLabelDefault = '搜索'
         break
       case '/botnav/cart':
-        this.selectedLabelDefault = '购物车'
+        this.selectedLabelDefault = '购物'
         break
       case '/botnav/mine':
         this.selectedLabelDefault = '我的'
