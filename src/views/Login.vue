@@ -81,9 +81,8 @@ export default {
           this.$store.commit('settoken', result.token)
           window.localStorage.setItem('token', result.token)
           this.$router.replace({ path: '/botnav/index' })
-          alert(this.$route.query.redirect)
           console.log(result.message)
-         //判断路由是否带参，带参就去到重定向参数地址，否则就去首页
+          //判断路由是否带参，带参就去到重定向参数地址，否则就去首页
           if(this.$route.query.redirect){
                 this.$router.replace({path:this.$route.query.redirect})
           }else{
