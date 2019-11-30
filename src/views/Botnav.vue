@@ -30,7 +30,7 @@ export default {
         label: '搜索',
         icon: 'cubeic-search'
       }, {
-        label: '购物',
+        label: '购物车',
         icon: 'cubeic-mall'
       }, {
         label: '我的',
@@ -56,7 +56,7 @@ export default {
         this.selectedLabelDefault = '搜索'
         break
       case '/botnav/cart':
-        this.selectedLabelDefault = '购物'
+        this.selectedLabelDefault = '购物车'
         break
       case '/botnav/mine':
         this.selectedLabelDefault = '我的'
@@ -79,7 +79,7 @@ export default {
         case '搜索':
           this.$router.push({ path: '/botnav/search' })
           break
-        case '购物':
+        case '购物车':
           this.$router.push({ path: '/botnav/cart' })
           break
         case '我的':
