@@ -82,11 +82,11 @@ export default {
           window.localStorage.setItem('token', result.token)
           this.$router.replace({ path: '/botnav/index' })
           console.log(result.message)
-          //判断路由是否带参，带参就去到重定向参数地址，否则就去首页
-          if(this.$route.query.redirect){
-                this.$router.replace({path:this.$route.query.redirect})
-          }else{
-                this.$router.replace({path:'/botnav/index'})
+          // 判断路由是否带参，带参就去到重定向参数地址，否则就去首页
+          if (this.$route.query.redirect) {
+            this.$router.replace({ path: this.$route.query.redirect })
+          } else {
+            this.$router.replace({ path: '/botnav/index' })
           }
         } else {
           alert(result.message)
